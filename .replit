@@ -1,0 +1,33 @@
+modules = ["nodejs-24"]
+
+[[artifacts]]
+id = "artifacts/api-server"
+
+[[artifacts]]
+id = "artifacts/mockup-sandbox"
+
+[deployment]
+router = "application"
+deploymentTarget = "autoscale"
+
+[deployment.postBuild]
+args = ["pnpm", "store", "prune"]
+env = { "CI" = "true" }
+
+[workflows]
+runButton = "Project"
+
+[agent]
+stack = "PNPM_WORKSPACE"
+expertMode = true
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 20000
+
+[userenv]
+
+[userenv.shared]
+EVOLUTION_BASE = "https://evolution-api-7q5z.onrender.com"
+EVOLUTION_INSTANCE = "GU"
+TELEGRAM_BOT_TOKEN = "8792499715:AAHL1te5-GNIkzjoYX1pZp9ayq99AYLzR_A"

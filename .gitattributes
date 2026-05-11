@@ -1,0 +1,2 @@
+artifacts/api-server/uploads/planilha_atual.xlsx filter=lfs diff=lfs merge=lfs -text
+attached_assets/06.05_1778182289858.xlsx filter=lfs diff=lfs merge=lfs -text
